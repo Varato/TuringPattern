@@ -1,4 +1,4 @@
-## Gray Scott
+## Gray Scott Model
 
 #### Reaction 
 
@@ -11,13 +11,21 @@ $$\frac{\partial{v}}{\partial{t}} = D_v \nabla^2 v + uv^2 - (F + k) v$$
 
 where $u(x, y, t)$ and $v(x, y, t)$ are concentrations of the reactants $U$ and $V$.
 
-In the simulation, concentration $u$ is visualized:
-### Maze
+In the simulation, discrete laplacian operator is used for diffusion, and $dx$ is set to $1$. Time step $dt$ is important for numerical stability when integrating the PDEs, and it must be set to balance efficiency and numerical stability. A theory for this is [Courant-Friedrichs-Lewy](https://en.wikipedia.org/wiki/Courant%E2%80%93Friedrichs%E2%80%93Lewy_condition).
+
+### Patterns
+
+#### Maze
 <p float="left">
-  <img src="./imgs/maze.png" width="600" />
+  <img src="./imgs/maze.png" width="300" />
 </p>
 
-### Singletons
+#### Solitons
 <p float="left">
-  <img src="./imgs/singleton.png" width="600" />
+  <img src="./imgs/solitons.png" width="300" />
+</p>
+
+#### Mitosis
+<p float="left">
+  <img src="./imgs/cell-mitosis.png" width="300" />
 </p>
