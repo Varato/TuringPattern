@@ -53,9 +53,9 @@ class GrayScott:
 
     def reset(self, random_strength=0.2):
         print("reset")
-        self.u = (1-random_strength) * np.ones((self.height,self.width)) +\
+        self.u = np.ones((self.height,self.width)) + \
               random_strength * np.random.random((self.height,self.width))
-
+    
         self.v = random_strength * np.random.random((self.height, self.width))
 
         r = self.height//10
@@ -71,15 +71,13 @@ class GrayScott:
         lu = laplacian(self.u, dx=self.dx)
         lv = laplacian(self.v, dx=self.dx)
 
-        uvv = self.u * self.v * self.v
-        du = self.Du * lu - uvv + self.F * (1 - self.u)
-        dv = self.Dv * lv + uvv - (self.F + self.k) * self.v
+        uv2 = self.u * self.v * self.v
+        du = self.Du * lu - uv2 + self.F * (1 - self.u)
+        dv = self.Dv * lv + uv2 - (self.F + self.k) * self.v
 
         self.u += du * self.dt
         self.v += dv * self.dt
 
-        # np.clip(self.u, a_min=0, a_max=1, out=self.u)
-        # np.clip(self.v, a_min=0, a_max=1, out=self.v)
         toc = time.time()
 
         self.cnt += 1
