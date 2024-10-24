@@ -1,10 +1,17 @@
 ## Gray Scott Model
 
-#### Reaction 
+### Run
+
+Run the simulation in Tkinter gui by:
+```bash
+python gui.py
+```
+
+### Reaction 
 
 $$U + 2V \rightarrow 3V$$
 
-#### Rate equations
+### Rate equations
 
 $$\frac{\partial{u}}{\partial{t}} = D_u \nabla^2 u - uv^2 + F (1-u)$$
 $$\frac{\partial{v}}{\partial{t}} = D_v \nabla^2 v + uv^2 - (F + k) v$$
