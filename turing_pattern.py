@@ -31,14 +31,14 @@ class GrayScott:
     def reset(self):
         print("reset")
         # U + 2V -> 3V
-        self.u = np.ones((self.height,self.width)) + \
+        self.u = 0.8 * np.ones((self.height,self.width)) + \
               0.2 * np.random.random((self.height,self.width))
         self.v = 0.2 * np.random.random((self.height, self.width))
 
         r = self.height//10
         X, Y = np.meshgrid(np.arange(self.height), np.arange(self.width), indexing="ij")
         circle = (X - self.height//2)**2 + (Y-self.width//2)**2 <= r**2
-        self.u[circle] = 0.6
+        self.u[circle] = 0.5
         self.v[circle] = 0.25
         self.cnt = 0
 
