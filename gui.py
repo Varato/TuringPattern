@@ -30,8 +30,6 @@ m = GrayScott(height=256, width=256)
 fig, ax = plt.subplots(figsize=(6, 6))
 plt.subplots_adjust(wspace=0, hspace=0.1, left=0, bottom=0.0, top=1.0, right=1)
 
-# ax.axis('off')
-
 im = ax.imshow(contrast_fcn(m.v), cmap="jet", vmin=0.0, vmax=1.0)
 root = tkinter.Tk()
 root.title("Gray Scott Reaction")
@@ -75,7 +73,6 @@ reset_flag = False
 after_id = None
 def update_ani():
     global after_id, reset_flag
-    # m.deposit_food(food_map)
     if reset_flag:
         m.reset()
         reset_flag = False
